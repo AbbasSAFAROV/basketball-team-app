@@ -1,6 +1,7 @@
 package com.producter.basketballteam.config;
 
 import com.producter.basketballteam.entity.Player;
+import com.producter.basketballteam.entity.Position;
 import com.producter.basketballteam.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -16,8 +17,8 @@ public class Config implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Player abbas = new Player("abbas","ahmet","C");
-        Player ahmet = new Player("ahmet","hirsi","AG");
+        Player abbas = new Player("abbas","ahmet", Position.C);
+        Player ahmet = new Player("ahmet","hirsi",Position.PF);
 
         repository.save(abbas);
         repository.save(ahmet);

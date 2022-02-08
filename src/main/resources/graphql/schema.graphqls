@@ -8,10 +8,17 @@ type Player {
  position: String
 }
 
+
 input PlayerDto {
  name: String
  surname: String
  position: String
+}
+
+
+
+type Subscription {
+  data: Hello
 }
 
 type Query {
@@ -20,15 +27,18 @@ type Query {
   getAllPlayers: [Player]
 }
 
-type Subscription {
-  data: Hello
-}
-
 type Mutation {
     add(message: String): Hello
-    create(name: String): Player
-    createPlayer(name: String): Player
-    createPlayerDto(player:PlayerDto): Player
+    createPlayer(player:PlayerDto): Player
+    createPlayerWithPosition(name:String,surname:String,position:Position): Player
+}
+
+enum Position{
+    PG,
+    SG,
+    SF,
+    PF,
+    C
 }
 
 schema {

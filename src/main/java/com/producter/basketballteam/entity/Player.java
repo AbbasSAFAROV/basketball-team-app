@@ -21,9 +21,9 @@ public class Player {
     private Long id;
     private String name;
     private String surname;
-    private String position;
+    private Position position;
 
-    public Player(String name, String surname, String position) {
+    public Player(String name, String surname, Position position) {
         this.name = name;
         this.surname = surname;
         this.position = position;

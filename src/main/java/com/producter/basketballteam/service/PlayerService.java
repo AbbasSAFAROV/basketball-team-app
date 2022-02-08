@@ -22,12 +22,7 @@ public class PlayerService {
         return repository.save(player);
     }
 
-    public Player createAPlayer(String name,String surname,String position){
-        return repository.save(new Player(name,surname,position));
-    }
-
-    public Player create(String name){
-        Player player = new Player(name);
+    public Player createPlayerWithPosition(Player player){
         return repository.save(player);
     }
 
