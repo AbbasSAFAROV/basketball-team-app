@@ -1,0 +1,38 @@
+type Hello {
+ message: String
+}
+
+type Player {
+ name: String
+ surname: String
+ position: String
+}
+
+input PlayerDto {
+ name: String
+ surname: String
+ position: String
+}
+
+type Query {
+  hello: Hello
+  allData: [Hello]
+  getAllPlayers: [Player]
+}
+
+type Subscription {
+  data: Hello
+}
+
+type Mutation {
+    add(message: String): Hello
+    create(name: String): Player
+    createPlayer(name: String): Player
+    createPlayerDto(player:PlayerDto): Player
+}
+
+schema {
+ query: Query
+ mutation: Mutation
+ subscription: Subscription
+}
