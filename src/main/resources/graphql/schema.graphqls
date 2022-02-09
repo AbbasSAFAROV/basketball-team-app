@@ -1,6 +1,4 @@
-type Hello {
- message: String
-}
+scalar Long
 
 type Player {
  name: String
@@ -12,25 +10,16 @@ type Player {
 input PlayerDto {
  name: String
  surname: String
- position: String
-}
-
-
-
-type Subscription {
-  data: Hello
+ position: Position
 }
 
 type Query {
-  hello: Hello
-  allData: [Hello]
   getAllPlayers: [Player]
 }
 
 type Mutation {
-    add(message: String): Hello
     createPlayer(player:PlayerDto): Player
-    createPlayerWithPosition(name:String,surname:String,position:Position): Player
+    deletePlayer(id: Long): String
 }
 
 enum Position{
@@ -44,5 +33,5 @@ enum Position{
 schema {
  query: Query
  mutation: Mutation
- subscription: Subscription
 }
+

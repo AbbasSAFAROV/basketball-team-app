@@ -4,12 +4,14 @@ package com.producter.basketballteam.service;
 import com.producter.basketballteam.entity.Player;
 import com.producter.basketballteam.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PlayerService {
 
     private final PlayerRepository repository;
@@ -19,11 +21,11 @@ public class PlayerService {
     }
 
     public Player createPlayer(Player player){
-        return repository.save(player);
-    }
-
-    public Player createPlayerWithPosition(Player player){
-        return repository.save(player);
+        if ( getAllPlayers().size() <= 12) {
+            log.info(String.valueOf(getAllPlayers().size()));
+            return repository.save(player);
+        }
+        throw new RuntimeException("the teams capacity is full!!");
     }
 
 
